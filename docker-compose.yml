@@ -1,0 +1,14 @@
+version: '3'
+services: 
+  frontend:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+      volumes:
+        - ./frontend:/app
+      ports:
+        - "3000:3000"
+      depends_on:
+        - web
+      environment:
+        REACT_APP_API_URL: "https://rvltweb3.tech/api"
